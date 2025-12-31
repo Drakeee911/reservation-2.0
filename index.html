@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Massage Studio — Book Online</title>
+  <meta name="description" content="Book a 15-minute massage with our team. Fast online booking." />
+  <style>
+    :root{
+      --bg:#07080c;
+      --card:#0f111a;
+      --card2:#0c0e15;
+      --text:#f4f6fb;
+      --muted:#aab2c5;
+      --line:rgba(255,255,255,.10);
+      --max:1100px;
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(120,80,255,.22), transparent 60%),
+        radial-gradient(900px 480px at 95% 10%, rgba(100,220,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), #06070b 60%, #05060a);
+      line-height:1.5;
+    }
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(7,8,12,.72);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:11px;
+      background:linear-gradient(135deg,#6ae4ff,#8b5cff,#ff5c93);
+    }
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:14px;
+      font-weight:800;
+      font-size:14px;
+    }
+    .links a:hover{color:var(--text)}
+    main{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+    .grid-hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+      margin-top:10px;
+    }
+    .card{
+      background:rgba(15,17,26,.88);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      padding:18px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:46px;
+      letter-spacing:-.02em;
+      line-height:1.05;
+    }
+    .sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:60ch;
+    }
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      padding:8px 10px;
+      font-weight:900;
+      font-size:13px;
+      color:var(--text);
+    }
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .btn.primary{
+      border:none;
+      color:#071019;
+      background:linear-gradient(135deg,#6ae4ff,#8b5cff,#ff5c93);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .kvs{display:grid; gap:10px}
+    .kv{
+      display:flex; justify-content:space-between; gap:12px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+    }
+    .kv .k{color:var(--muted); font-weight:900}
+    .kv .v{font-weight:900}
+    section{margin-top:16px}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin:0 0 10px;
+    }
+    .section-title h2{margin:0; font-size:22px}
+    .section-title .hint{color:var(--muted); font-size:13px; font-weight:800}
+    .cards3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .service{
+      background:rgba(12,14,21,.92);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      padding:16px;
+    }
+    .service h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .price{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid var(--line);
+      font-weight:900;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-size:12px;
+      font-weight:900;
+      color:var(--text);
+    }
+    .staff-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .staff{
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      background:rgba(12,14,21,.92);
+      padding:16px;
+      display:flex; gap:12px; align-items:center;
+    }
+    .avatar{
+      width:48px; height:48px; border-radius:16px;
+      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+    }
+    .staff strong{display:block}
+    .book-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      align-items:start;
+    }
+    .embed{
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      overflow:hidden;
+      background:#fff;
+      min-height:520px;
+    }
+    .embed .placeholder{
+      padding:18px;
+      background:linear-gradient(180deg,#ffffff,#f4f6fb);
+      color:#111;
+      height:100%;
+    }
+    .small{font-size:13px}
+    footer{
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      text-align:center;
+      padding:22px 18px;
+    }
+    @media (max-width: 900px){
+      .grid-hero{grid-template-columns:1fr}
+      h1{font-size:36px}
+      .cards3, .staff-grid{grid-template-columns:1fr}
+      .book-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo"></div>
+        <div>Your Massage Studio</div>
+      </div>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="grid-hero">
+      <div class="card">
+        <h1>Massage booking,<br/>done in seconds.</h1>
+        <p class="sub">
+          15-minute fixed appointments. 3 therapists. Instant confirmation.
+          Built to feel like Fresha — but branded as yours.
+        </p>
+
+        <div class="chips">
+          <span class="chip">15-minute slots</span>
+          <span class="chip">3 therapists</span>
+          <span class="chip">Fast booking</span>
+          <span class="chip">Mobile-friendly</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#book">Book now</a>
+          <a class="btn" href="#services">View services</a>
+        </div>
+
+        <p class="muted small" style="margin-top:12px;">
+          Tip: Later we’ll connect your Fresha booking link here so availability is real (no double bookings).
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="section-title" style="margin-bottom:12px;">
+          <h2>Studio details</h2>
+          <div class="hint">Edit anytime</div>
+        </div>
+        <div class="kvs">
+          <div class="kv"><div class="k">Hours</div><div class="v">Mon–Sun • 10am–8pm</div></div>
+          <div class="kv"><div class="k">Location</div><div class="v">Perth, WA</div></div>
+          <div class="kv"><div class="k">15-min Massage</div><div class="v">$XX</div></div>
+          <div class="kv"><div class="k">Phone</div><div class="v">+61 4xx xxx xxx</div></div>
+        </div>
+        <p class="muted small" style="margin-top:12px;">
+          Replace business name, hours, price, and phone with your real info.
+        </p>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="card" style="margin-top:16px;">
+      <div class="section-title">
+        <h2>Services</h2>
+        <div class="hint">Simple, fixed time</div>
+      </div>
+
+      <div class="cards3">
+        <div class="service">
+          <h3>Massage — 15 minutes</h3>
+          <p class="muted">Quick reset for neck/shoulders/back. Perfect for busy days.</p>
+          <div class="price">
+            <span class="pill">15 min</span>
+            <span>$XX</span>
+          </div>
+        </div>
+
+        <div class="service">
+          <h3>Add-on: Extra pressure</h3>
+          <p class="muted">Tell us your preference. We tailor to you.</p>
+          <div class="price">
+            <span class="pill">Included</span>
+            <span>$0</span>
+          </div>
+        </div>
+
+        <div class="service">
+          <h3>Add-on: Focus area</h3>
+          <p class="muted">Neck • Shoulders • Back • Legs</p>
+          <div class="price">
+            <span class="pill">Choose</span>
+            <span>$0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="card">
+      <div class="section-title">
+        <h2>Meet the team</h2>
+        <div class="hint">3 therapists</div>
+      </div>
+
+      <div class="staff-grid">
+        <div class="staff">
+          <div class="avatar"></div>
+          <div>
+            <strong>Therapist 1</strong>
+            <div class="muted small">Massage therapist</div>
+          </div>
+        </div>
+        <div class="staff">
+          <div class="avatar"></div>
+          <div>
+            <strong>Therapist 2</strong>
+            <div class="muted small">Massage therapist</div>
+          </div>
+        </div>
+        <div class="staff">
+          <div class="avatar"></div>
+          <div>
+            <strong>Therapist 3</strong>
+            <div class="muted small">Massage therapist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="book" class="card">
+      <div class="section-title">
+        <h2>Book now</h2>
+        <div class="hint">Fresha-ready</div>
+      </div>
+
+      <div class="book-wrap">
+        <div class="service">
+          <h3>How booking works</h3>
+          <p class="muted">
+            Choose a time. Fresha checks availability across all 3 therapists and confirms instantly.
+          </p>
+          <ul class="muted small" style="margin:10px 0 0 18px;">
+            <li>15-minute fixed slots</li>
+            <li>No double booking</li>
+            <li>Confirmation + reminders</li>
+            <li>Optional deposit/payment</li>
+          </ul>
+
+          <div class="cta" style="margin-top:14px;">
+            <!-- Replace this link with your Fresha booking link later -->
+            <a class="btn primary" href="PASTE_YOUR_FRESHA_BOOKING_LINK_HERE" target="_blank" rel="noopener">
+              Open booking
+            </a>
+            <a class="btn" href="#contact">Questions?</a>
+          </div>
+
+          <p class="muted small" style="margin-top:10px;">
+            Later: if Fresha gives you an embed code, we can put it in the right panel.
+          </p>
+        </div>
+
+        <div class="embed">
+          <!-- OPTION 1: Keep placeholder (safe) -->
+          <div class="placeholder">
+            <h3 style="margin:0 0 8px;">Booking widget</h3>
+            <p class="small" style="margin:0 0 10px;">
+              Paste your Fresha embed code here (if available), or keep the “Open booking” button.
+            </p>
+            <div class="small" style="padding:12px;border:1px dashed rgba(0,0,0,.25);border-radius:14px;">
+              <strong>Embed goes here</strong><br/>
+              Example format: an iframe or script provided by Fresha.
+            </div>
+          </div>
+
+          <!-- OPTION 2: If you get an iframe URL, replace the placeholder with this:
+          <iframe
+            src="PASTE_FRESHA_EMBED_URL_HERE"
+            width="100%"
+            height="700"
+            frameborder="0"
+            style="border:0;"
+            title="Book Appointment"
+            loading="lazy"
+          ></iframe>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <div class="hint">Update details</div>
+      </div>
+      <div class="kvs">
+        <div class="kv"><div class="k">Phone</div><div class="v">+61 4xx xxx xxx</div></div>
+        <div class="kv"><div class="k">Address</div><div class="v">Your address, Perth WA</div></div>
+        <div class="kv"><div class="k">Email</div><div class="v">you@business.com</div></div>
+      </div>
+      <p class="muted small" style="margin-top:12px;">
+        Want a WhatsApp button + Google Maps embed? Tell me and I’ll add it.
+      </p>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> Your Massage Studio</footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
