@@ -27,12 +27,8 @@
   linear-gradient(180deg, var(--bg), #f6f5ef 60%, #fbfbf7);
 
     }
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(7,8,12,.72);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--line);
-    }
+    background:rgba(251,251,247,.85);
+
     nav{
       max-width:var(--max);
       margin:0 auto;
@@ -47,9 +43,11 @@
       font-weight:900; letter-spacing:.2px;
     }
     .logo{
-      width:34px; height:34px; border-radius:11px;
-      background:linear-gradient(135deg,#6ae4ff,#8b5cff,#ff5c93);
-    }
+  width:34px; height:34px; border-radius:11px;
+  background:linear-gradient(135deg, var(--gold1), var(--gold2));
+  box-shadow: 0 10px 24px rgba(184,137,42,.25);
+}
+
     .links a{
       color:var(--muted);
       text-decoration:none;
@@ -95,20 +93,13 @@
       color:var(--text);
     }
     .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:900;
-      cursor:pointer;
-    }
+    .btn.primary{
+  border:1px solid rgba(184,137,42,.35);
+  color:#0c0c0f;
+  background:linear-gradient(135deg, var(--gold1), var(--cream));
+  box-shadow: 0 10px 30px rgba(184,137,42,.18);
+}
+
     .btn.primary{
       border:none;
       color:#071019;
@@ -415,6 +406,7 @@
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
 
